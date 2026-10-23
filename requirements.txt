@@ -7,3 +7,5 @@ langchain-community
 langchain-groq
 langgraph
 python-dotenv
+langchain-tavily
+tavily-python
