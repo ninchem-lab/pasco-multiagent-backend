@@ -1,0 +1,57 @@
+[project]
+name = "multi-agent-system"
+version = "0.1.0"
+description = "Multi-agent football assistant using LangGraph and Groq."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph>=0.4.1",
+    "langgraph-checkpoint>=4.0.3",
+    "langchain-groq>=0.3.3",
+    "langchain-tavily>=0.2.18",
+    "streamlit>=1.45.0",
+    "python-dotenv>=1.1.0",
+    "beautifulsoup4>=4.14.3",
+    "requests>=2.33.1",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "black>=24.10.0",
+    "ruff>=0.8.4",
+    "pylint>=3.3.2",
+    "flake8>=7.1.1",
+    "flake8-pyproject>=1.2.3",
+    "mypy>=1.13.0",
+    "complexipy>=1.2.0",
+    "isort>=5.13.2",
+    "bandit>=1.9.4",
+    "tavily>=1.1.0",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[[tool.mypy.overrides]]
+module = [
+    "langchain_groq.*",
+    "langchain_tavily.*",
+    "langchain_core.*",
+    "pydantic.*",
+    "langgraph.*",
+    "langchain_community.*",
+    "tavily.*",
+    "bs4.*",
+    "requests.*"
+]
+ignore_missing_imports = true
+
+[tool.flake8]
+max-line-length = 88
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "--cov src"
+
+[tool.isort]
+profile = "black"
+lines_after_imports = 2
